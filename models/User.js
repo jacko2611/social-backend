@@ -36,3 +36,9 @@ const UserSchema = new Schema(
     }
 );
 
+// Initialize our Post model
+const Post = model('post', postSchema);
+
+module.exports = Post;
+
+
