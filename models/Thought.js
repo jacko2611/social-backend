@@ -33,3 +33,12 @@ const ThoughtSchema = new Schema(
     }
 );
 
+// Get total count of friends on retrieval
+ThoughtSchema.virtual('reactionCount').get(function() {
+    return this.reactions.length;
+}
+);
+
+// Initialize our Thought model
+const Thought = model('Thought', ThoughtSchema);
+
