@@ -36,6 +36,12 @@ const UserSchema = new Schema(
     }
 );
 
+// Get total count of friends on retrieval
+UserSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
+}
+);
+
 // Initialize our Post model
 const Post = model('post', postSchema);
 
