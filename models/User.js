@@ -42,9 +42,9 @@ UserSchema.virtual('friendCount').get(function() {
 }
 );
 
-// Initialize our Post model
-const Post = model('post', postSchema);
+// Initialize our User model
+const User = mongoose.model('User', UserSchema);
 
-module.exports = Post;
+module.exports = User;
 
 
