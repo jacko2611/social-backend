@@ -1,13 +1,13 @@
-const mongoose = require('mongoose');
-const User = require('./models/user');
+const connection = require('../config/connection');
+const User = require('../models/User');
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost/social', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-});
+// // Connect to MongoDB
+// mongoose.connect('mongodb://localhost/social', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false
+// });
 
 // Define seed data
 const userData = [
