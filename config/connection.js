@@ -5,8 +5,6 @@ const { connect, connection } = require('mongoose');
 connect('mongodb://localhost/social', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
 });
 
 

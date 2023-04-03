@@ -10,14 +10,15 @@ const thoughtController = {
                 res.status(400).json(err);
             });
     },
-    getThoughtByID({ params }, res) {
+    getThoughtById({ params }, res) {
         Thought.findOne({ _id: params.thoughtId })
-            .then(thoughtData => res.json(thoughtData))
-            .catch(err => {
-                console.log(err);
-                res.status(400).json(err);
-            });
-    },
+          .then(thoughtData => res.json(thoughtData))
+          .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+          });
+      },
+      
     addThought({ params, body }, res) {
         Thought.create(body)
             .then(({ _id }) => {
@@ -73,7 +74,7 @@ const thoughtController = {
         })
         .catch(err => res.json(err));
     },
-    deleteReaction({params}, res){
+    removeReaction({params}, res){
         Thought.findOneAndUpdate(
             {_id: params.thoughtId},
             {$pull: {reactions: {reactionId : params.reactionId}}},

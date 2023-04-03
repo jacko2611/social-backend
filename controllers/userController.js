@@ -14,8 +14,8 @@ const userController = {
             .then(userData => res.json(userData))
             .catch(err => res.status(400).json(err));
     },
-    getUserByID({ params }, res) {
-        User.findOne({ _id: params.id })
+    getUserById({ params }, res) {
+        User.findOne({ _id: params.userId })
             .then(userData => res.json(userData))
             .catch(err => res.status(400).json(err));
     },

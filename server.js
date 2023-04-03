@@ -3,7 +3,7 @@ const db = require('./config/connection');
 const routes = require('./routes');
 const mongoose = require('mongoose');
 
-const PORT = 3002;
+const PORT = 3007;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
