@@ -17,7 +17,7 @@ const thoughtController = {
             console.log(err);
             res.status(400).json(err);
           });
-      },
+    },
       
     addThought({ params, body }, res) {
         Thought.create(body)
@@ -33,7 +33,7 @@ const thoughtController = {
                     res.status(404).json({ message: 'Incorrect thought data!' });
                     return;
                 }
-                res.json(dbPizzaData);
+                res.json(thoughtData);
             })
             .catch(err => res.json(err));
     },
@@ -41,10 +41,11 @@ const thoughtController = {
         Thought.findByIdAndUpdate({ _id: params.thoughtId }, body, { runValidators: true, new: true })
             .then(thoughtData => {
                 if (!thoughtData) {
-                    res.status(404).json({ message: 'No user found with this ID!' });
+                    res.status(404).json({ message: 'No thought found with this ID!' });
                     return;
                 }
-                res.json(dbPizzaData);
+                res.status(200).json({ message: 'Thought updated!' })
+                res.json(thoughtData);
             })
             .catch(err => res.json(err));
     },
@@ -52,10 +53,11 @@ const thoughtController = {
         Thought.findByIdAndDelete({ _id: params.thoughtId }, { runValidators: true, new: true })
             .then(thoughtData => {
                 if (!thoughtData) {
-                    res.status(404).json({ message: 'No user found with this ID!' });
+                    res.status(404).json({ message: 'No thought found with this ID!' });
                     return;
                 }
-                res.json(dbPizzaData);
+                res.status(200).json({ message: 'Thought deleted!' })
+                res.json(thoughtData);
             })
             .catch(err => res.json(err));
     },
@@ -70,7 +72,7 @@ const thoughtController = {
                 res.status(404).json({ message: 'Incorrect reaction data!' });
                 return;
             }
-            res.json(dbPizzaData);
+            res.json(thoughtData);
         })
         .catch(err => res.json(err));
     },
@@ -85,11 +87,10 @@ const thoughtController = {
                 res.status(404).json({ message: 'Incorrect reaction data!' });
                 return;
             }
-            res.json(dbPizzaData);
+            res.json(thoughtData);
         })
         .catch(err => res.json(err));
     }
 }
-
 
 module.exports = thoughtController;
