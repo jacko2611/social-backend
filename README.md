@@ -1,6 +1,6 @@
 # Social Backend
 
-https://github.com/www.github.com/jacko2611/social-backend
+https://www.github.com/jacko2611/social-backend
 ## Description
 Social Backend is the functional backend for a social networking site in which users can post their thoughts, update thoughts, add friends, react to others thoughts as well as delete friends and thoughts through the use of API routing.
 ## Table of Contents
